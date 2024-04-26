@@ -147,7 +147,7 @@ function Services() {
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem title="Specific">
               Not every student is going to struggle on the same problems.
-              We're building a platform that helps students catch up by giving them exactly what they need.
+              We are building a platform that helps students catch up by giving them exactly what they need.
             </ListItem>
             <ListItem title="Persistant">
               We track how the student is progressing over time and provide tools to show that they are moving
