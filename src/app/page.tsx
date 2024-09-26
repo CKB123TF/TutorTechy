@@ -19,6 +19,7 @@ import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
 import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
+import QuizQuestion from '@/components/Questions'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
 const clients = [
@@ -203,6 +204,14 @@ export default async function Home() {
       </Testimonial> */}
 
       <Services />
+
+        <div className="pt-8 mx-auto max-w-2xl text-center">
+          <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">See it in action 📕</h2>
+          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-white">
+                Try out an example question!
+          </p>
+        </div>
+      <QuizQuestion />
 
       {/* <ContactSection /> */}
     </>
