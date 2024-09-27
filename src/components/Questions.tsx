@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { AlertCircle, CheckCircle, Info } from 'lucide-react';
 import AdviceModal from '@/components/AdviceModal'
 
-type Shape = 'line' | 'circle' | 'square' | 'triangle' | 'pentagon';
+type Shape = 'line' | 'circle' | 'square' | 'rectangle' | 'triangle' | 'pentagon';
 type Color = string;
 type FillPercentage = number; // 0 to 100
 type Rotation = number; // 0 to 360
-type Size = 'small' | 'medium' | 'large';
+type Size = 'smallest' | 'smaller' | 'small' | 'medium' | 'large';
 type AreaPosition = 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
 
 interface SVGElement {
@@ -45,12 +45,16 @@ const ShapeSVG: React.FC<SVGElement> = ({ shape, color, fillPercentage, rotation
         return 'M0,-40 L40,40 L-40,40 Z';
       case 'pentagon':
         return 'M0,-40 L38,-12 L23,40 L-23,40 L-38,-12 Z';
+    case 'rectangle':
+        return 'M-40,-20 L40,-20 L40,20 L-40,20 Z';
       default:
         return '';
     }
   };
 
   const sizeScale = {
+    smallest: 0.1,
+    smaller: 0.25,
     small: 0.5,
     medium: 0.75,
     large: 1
@@ -125,52 +129,224 @@ const MatrixDisplay: React.FC<{ matrix: (Cell | null)[][] }> = ({ matrix }) => (
 );
 
 const questions: Question[] = [
+    {
+        id: 1,
+        matrix: [
+          [
+            { elements: [{ shape: 'circle', color: '#000000', fillPercentage: 0,  rotation: 0, size: 'large', position: 'center' }] },
+            { elements: [{ shape: 'square', color: '#FF0000', fillPercentage: 50,  rotation: 0, size: 'large', position: 'center' }] },
+            { elements: [{ shape: 'triangle', color: '#FF00FF', fillPercentage: 100,  rotation: 0, size: 'large', position: 'center' }] }
+          ],
+          [
+            { elements: [{ shape: 'circle', color: '#0000FF', fillPercentage: 50,  rotation: 0, size: 'large', position: 'center' }] },
+            { elements: [{ shape: 'square', color: '#FFFF00', fillPercentage: 100,  rotation: 0, size: 'large', position: 'center' }] },
+            { elements: [{ shape: 'triangle', color: '#FF00FF', fillPercentage: 0,  rotation: 0, size: 'large', position: 'center' }] }
+          ],
+          [
+            { elements: [{ shape: 'circle', color: '#00FFFF', fillPercentage: 100,  rotation: 0, size: 'large', position: 'center' }] },
+            { elements: [{ shape: 'square', color: '#800080', fillPercentage: 0,  rotation: 0, size: 'large', position: 'center'}] },
+            null
+          ]
+        ],
+        correctAnswer: 'E',
+        options: {
+          A: { elements: [{ shape: 'circle', color: '#FFA500', fillPercentage: 30, rotation: 0, size: 'large', position: 'center' }] },
+          B: { elements: [{ shape: 'pentagon', color: '#008000', fillPercentage: 70, rotation: 0, size: 'large', position: 'center' }] },
+          C: { elements: [{ shape: 'line', color: '#800000', fillPercentage: 80, rotation: 0, size: 'large', position: 'center' }] },
+          D: { elements: [{ shape: 'circle', color: '#FFA500', fillPercentage: 60, rotation: 0, size: 'large', position: 'center' }] },
+          E: { elements: [{ shape: 'triangle', color: '#008000', fillPercentage: 50, rotation: 0, size: 'large', position: 'center' }] },
+          F: { elements: [{ shape: 'line', color: '#800000', fillPercentage: 10, rotation: 0, size: 'large', position: 'center' }] }
+        },
+        advice: 'Look at how much of each object is filled with color'
+      },
   {
-    id: 1,
+    id: 2,
     matrix: [
-        [
-          { elements: [{ shape: 'circle', color: '#FFA500', fillPercentage: 30, rotation: 0, size: 'medium', position: 'center' }] },
-          { elements: [{ shape: 'square', color: '#FF0000', fillPercentage: 50, rotation: 45, size: 'medium', position: 'top-right' }] },
-          { elements: [{ shape: 'triangle', color: '#00FF00', fillPercentage: 100, rotation: 0, size: 'small', position: 'bottom-left' }] }
-        ],
-        [
-          { elements: [
-            { shape: 'circle', color: '#0000FF', fillPercentage: 50, rotation: 0, size: 'small', position: 'top-left' },
-            { shape: 'square', color: '#FFFF00', fillPercentage: 25, rotation: 0, size: 'small', position: 'bottom-right' }
-          ] },
-          { elements: [
-            { shape: 'line', color: '#FF00FF', fillPercentage: 100, rotation: 0, size: 'medium', position: 'center' },
-            { shape: 'line', color: '#00FFFF', fillPercentage: 100, rotation: 90, size: 'medium', position: 'center' }
-          ] },
-          { elements: [{ shape: 'pentagon', color: '#800080', fillPercentage: 75, rotation: 72, size: 'large', position: 'center' }] }
-        ],
-        [
-          { elements: [
-            { shape: 'circle', color: '#FFA500', fillPercentage: 100, rotation: 0, size: 'medium', position: 'top-center' },
-            { shape: 'triangle', color: '#008000', fillPercentage: 50, rotation: 180, size: 'medium', position: 'bottom-center' }
-          ] },
-          { elements: [{ shape: 'square', color: '#800000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' }] },
-          null
-        ]
+      [
+        { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'large', position: 'center' }] },
+        { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' }] },
+        { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 135, size: 'large', position: 'center' }] }
       ],
-    correctAnswer: 'E',
+      [
+        { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' }] },
+        { elements: [
+          { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' },
+          { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'large', position: 'center' },
+          { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' },
+          { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 135, size: 'large', position: 'center' }
+        ] },
+        { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' }] }
+      ],
+      [
+        { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 135, size: 'large', position: 'center' }] },
+        { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' }] },
+        null
+      ]
+    ],
+    correctAnswer: 'C',
     options: {
-      A: { elements: [{ shape: 'circle', color: '#FFA500', fillPercentage: 30, rotation: 0, size: 'medium', position: 'center' }] },
-      B: { elements: [{ shape: 'pentagon', color: '#008000', fillPercentage: 70, rotation: 0, size: 'large', position: 'center' }] },
-      C: { elements: [{ shape: 'line', color: '#800000', fillPercentage: 80, rotation: 45, size: 'large', position: 'center' }] },
-      D: { elements: [{ shape: 'circle', color: '#FFA500', fillPercentage: 60, rotation: 0, size: 'small', position: 'top-left' }] },
+      A: { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' }] },
+      B: { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 135, size: 'large', position: 'center' }] },
+      C: { elements: [{ shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'large', position: 'center' }] },
+      D: { elements: [
+        { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' },
+        { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' }
+      ] },
       E: { elements: [
-        { shape: 'triangle', color: '#008000', fillPercentage: 50, rotation: 0, size: 'medium', position: 'top-left' },
-        { shape: 'square', color: '#800000', fillPercentage: 25, rotation: 45, size: 'small', position: 'bottom-right' }
+        { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'large', position: 'center' },
+        { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 135, size: 'large', position: 'center' }
       ] },
       F: { elements: [
-        { shape: 'line', color: '#800000', fillPercentage: 10, rotation: 0, size: 'small', position: 'top-center' },
-        { shape: 'line', color: '#FFA500', fillPercentage: 10, rotation: 90, size: 'small', position: 'bottom-center' }
-      ] },
+        { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' },
+        { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'large', position: 'center' },
+        { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' }
+      ] }
     },
-    advice: "Look for patterns in how shapes and colors are distributed across the matrix. Pay attention to how elements combine in each cell."
-  },
-  // Add more questions here
+    advice: "Observe the pattern of line rotations in each row and column. Pay attention to how the number of lines changes in different cells."
+    }, 
+    {
+        id: 3,
+        matrix: [
+          [
+            { elements: [
+              { shape: 'circle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' }
+            ] },
+            { elements: [
+              { shape: 'circle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' },
+              { shape: 'circle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smallest', position: 'center' }
+            ] },
+            { elements: [
+              { shape: 'circle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'small', position: 'center' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'small', position: 'center' }
+            ] }
+          ],
+          [
+            { elements: [
+              { shape: 'square', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'small', position: 'center' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'small', position: 'center' }
+            ] },
+            { elements: [
+              { shape: 'square', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' }
+            ] },
+            { elements: [
+              { shape: 'square', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' },
+              { shape: 'circle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smallest', position: 'center' }
+            ] }
+          ],
+          [
+            { elements: [
+              { shape: 'triangle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' },
+              { shape: 'circle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smallest', position: 'center' }
+            ] },
+            { elements: [
+              { shape: 'triangle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'small', position: 'center' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'small', position: 'center' }
+            ] },
+            null
+          ]
+        ],
+        correctAnswer: 'C',
+        options: {
+          A: { elements: [
+            { shape: 'triangle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' },
+            { shape: 'square', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smallest', position: 'center' }
+          ] },
+          B: { elements: [
+            { shape: 'triangle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' },
+            { shape: 'circle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smallest', position: 'center' }
+          ] },
+          C: { elements: [
+            { shape: 'triangle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' }
+          ] },
+          D: { elements: [
+            { shape: 'triangle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' }
+          ] },
+          E: { elements: [
+            { shape: 'circle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' }
+          ] },
+          F: { elements: [
+            { shape: 'triangle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' },
+            { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'small', position: 'center' },
+            { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'small', position: 'center' }
+          ] }
+        },
+        advice: "Observe how the outer shape changes in each row, and how the inner elements (dot, cross, or nothing) follow a pattern across rows and columns."
+    },
+    {
+        id: 4,
+        matrix: [
+          [
+            { elements: [
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' },
+              { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smaller', position: 'middle-left' }
+            ] },
+            { elements: [
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' },
+              { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smaller', position: 'center' }
+            ] },
+            { elements: [
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' },
+              { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smaller', position: 'middle-right' }
+            ] }
+          ],
+          [
+            { elements: [
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'large', position: 'center' },
+              { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 45, size: 'smaller', position: 'top-left' }
+            ] },
+            { elements: [
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'large', position: 'center' },
+              { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 45, size: 'smaller', position: 'center' }
+            ] },
+            { elements: [
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'large', position: 'center' },
+              { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 45, size: 'smaller', position: 'bottom-right' }
+            ] }
+          ],
+          [
+            { elements: [
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' },
+              { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 90, size: 'smaller', position: 'top-center' }
+            ] },
+            { elements: [
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' },
+              { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 90, size: 'smaller', position: 'center' }
+            ] },
+            null
+          ]
+        ],
+        correctAnswer: 'C',
+        options: {
+          A: { elements: [
+            { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' },
+            { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 90, size: 'smaller', position: 'top-center' }
+          ] },
+          B: { elements: [
+            { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' },
+            { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 90, size: 'smaller', position: 'center' }
+          ] },
+          C: { elements: [
+            { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' },
+            { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 90, size: 'smaller', position: 'bottom-center' }
+          ] },
+          D: { elements: [
+            { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' },
+            { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smaller', position: 'middle-right' }
+          ] },
+          E: { elements: [
+            { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'large', position: 'center' },
+            { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 45, size: 'smaller', position: 'bottom-right' }
+          ] },
+          F: { elements: [
+            { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 135, size: 'large', position: 'center' },
+            { shape: 'rectangle', color: '#000000', fillPercentage: 100, rotation: 135, size: 'smaller', position: 'top-left' }
+          ] }
+        },
+        advice: "Observe the pattern of line rotations in each row and how the position of the rectangle changes along the line from left to right in each row."
+      }
 ];
 
 const SVGShapeQuiz: React.FC = () => {
@@ -210,7 +386,7 @@ const SVGShapeQuiz: React.FC = () => {
             className="flex items-center px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
           >
             <Info className="mr-1" size={18} />
-            Information
+            Hint
           </button>
         </div>
         <MatrixDisplay matrix={questions[currentQuestion].matrix} />
@@ -221,6 +397,28 @@ const SVGShapeQuiz: React.FC = () => {
           </div>
         )}
       </div>
+      <div className='flex justify-between'>
+        {currentQuestion !== 0 && (
+            <div>
+            <button
+                onClick={prevQuestion}
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+                Previous Question
+            </button>
+            </div>
+        )}
+        {currentQuestion < questions.length - 1 && (
+            <div className="ml-auto">
+            <button
+                onClick={nextQuestion}
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            >
+                Next Question
+            </button>
+            </div>
+        )}
+        </div>
       <h1 className='font-bold text-center'>
         SELECT ANSWER BELOW
       </h1>
@@ -239,24 +437,6 @@ const SVGShapeQuiz: React.FC = () => {
             </div>
           </button>
         ))}
-      </div>
-      <div className='flex justify-between mt-4'>
-        {currentQuestion !== 0 && (
-          <button
-            onClick={prevQuestion}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Previous Question
-          </button>
-        )}
-        {currentQuestion < questions.length - 1 && (
-          <button
-            onClick={nextQuestion}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Next Question
-          </button>
-        )}
       </div>
       <AdviceModal
         information={questions[currentQuestion].advice}
