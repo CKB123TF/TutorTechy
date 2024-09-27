@@ -212,7 +212,7 @@ export default async function Home() {
                 Try out an example question!
           </p>
         </div>
-      {/* <QuizQuestion /> */}
+      <QuizQuestion />
       <SVGShapeQuiz />
 
       {/* <ContactSection /> */}

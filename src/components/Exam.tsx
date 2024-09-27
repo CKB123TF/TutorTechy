@@ -1,5 +1,5 @@
 'use client'
-
+//Get the AI companies to watermark so that ai can't be used for accessing answers
 import React, { useState } from 'react';
 import { AlertCircle, CheckCircle } from 'lucide-react';
 
