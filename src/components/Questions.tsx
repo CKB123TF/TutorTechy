@@ -57,22 +57,22 @@ const ShapeSVG: React.FC<SVGElement> = ({ shape, color, fillPercentage, rotation
   };
 
   return (
-    <g transform={`rotate(${rotation}) scale(${sizeScale[size]})`}>
-      <defs>
-        <linearGradient id={`grad-${shape}-${color}-${fillPercentage}`} x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor={color} />
-          <stop offset={`${fillPercentage}%`} stopColor={color} />
-          <stop offset={`${fillPercentage}%`} stopColor="transparent" />
-          <stop offset="100%" stopColor="transparent" />
-        </linearGradient>
-      </defs>
-      <path
-        d={getPath(shape)}
-        fill={`url(#grad-${shape}-${color}-${fillPercentage})`}
-        stroke={color}
-        strokeWidth="4"
-      />
-    </g>
+        <g transform={`rotate(${rotation}) scale(${sizeScale[size]})`}>
+        <defs>
+            <linearGradient id={`grad-${shape}-${color}-${fillPercentage}`} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor={color} />
+            <stop offset={`${fillPercentage}%`} stopColor={color} />
+            <stop offset={`${fillPercentage}%`} stopColor="transparent" />
+            <stop offset="100%" stopColor="transparent" />
+            </linearGradient>
+        </defs>
+        <path
+            d={getPath(shape)}
+            fill={`url(#grad-${shape}-${color}-${fillPercentage})`}
+            stroke={color}
+            strokeWidth="4"
+        />
+        </g>
   );
 };
 
@@ -113,7 +113,9 @@ const MatrixDisplay: React.FC<{ matrix: (Cell | null)[][] }> = ({ matrix }) => (
     {matrix.flat().map((cell, index) => (
       <div key={index} className="border flex items-center justify-center aspect-square">
         {cell ? (
+        <div className="w-full h-full">
           <CellDisplay cell={cell} />
+        </div>
         ) : index === 8 ? (
           <span className="text-4xl font-bold">?</span>
         ) : null}
@@ -126,31 +128,31 @@ const questions: Question[] = [
   {
     id: 1,
     matrix: [
-      [
-        { elements: [{ shape: 'circle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' }] },
-        { elements: [{ shape: 'square', color: '#FF0000', fillPercentage: 50, rotation: 45, size: 'medium', position: 'top-right' }] },
-        { elements: [{ shape: 'triangle', color: '#00FF00', fillPercentage: 100, rotation: 0, size: 'small', position: 'bottom-left' }] }
+        [
+          { elements: [{ shape: 'circle', color: '#FFA500', fillPercentage: 30, rotation: 0, size: 'medium', position: 'center' }] },
+          { elements: [{ shape: 'square', color: '#FF0000', fillPercentage: 50, rotation: 45, size: 'medium', position: 'top-right' }] },
+          { elements: [{ shape: 'triangle', color: '#00FF00', fillPercentage: 100, rotation: 0, size: 'small', position: 'bottom-left' }] }
+        ],
+        [
+          { elements: [
+            { shape: 'circle', color: '#0000FF', fillPercentage: 50, rotation: 0, size: 'small', position: 'top-left' },
+            { shape: 'square', color: '#FFFF00', fillPercentage: 25, rotation: 0, size: 'small', position: 'bottom-right' }
+          ] },
+          { elements: [
+            { shape: 'line', color: '#FF00FF', fillPercentage: 100, rotation: 0, size: 'medium', position: 'center' },
+            { shape: 'line', color: '#00FFFF', fillPercentage: 100, rotation: 90, size: 'medium', position: 'center' }
+          ] },
+          { elements: [{ shape: 'pentagon', color: '#800080', fillPercentage: 75, rotation: 72, size: 'large', position: 'center' }] }
+        ],
+        [
+          { elements: [
+            { shape: 'circle', color: '#FFA500', fillPercentage: 100, rotation: 0, size: 'medium', position: 'top-center' },
+            { shape: 'triangle', color: '#008000', fillPercentage: 50, rotation: 180, size: 'medium', position: 'bottom-center' }
+          ] },
+          { elements: [{ shape: 'square', color: '#800000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' }] },
+          null
+        ]
       ],
-      [
-        { elements: [
-          { shape: 'circle', color: '#0000FF', fillPercentage: 50, rotation: 0, size: 'small', position: 'top-left' },
-          { shape: 'square', color: '#FFFF00', fillPercentage: 25, rotation: 0, size: 'small', position: 'bottom-right' }
-        ] },
-        { elements: [
-          { shape: 'line', color: '#FF00FF', fillPercentage: 100, rotation: 0, size: 'medium', position: 'center' },
-          { shape: 'line', color: '#00FFFF', fillPercentage: 100, rotation: 90, size: 'medium', position: 'center' }
-        ] },
-        { elements: [{ shape: 'pentagon', color: '#800080', fillPercentage: 75, rotation: 72, size: 'large', position: 'center' }] }
-      ],
-      [
-        { elements: [
-          { shape: 'circle', color: '#FFA500', fillPercentage: 100, rotation: 0, size: 'medium', position: 'top-center' },
-          { shape: 'triangle', color: '#008000', fillPercentage: 50, rotation: 180, size: 'medium', position: 'bottom-center' }
-        ] },
-        { elements: [{ shape: 'square', color: '#800000', fillPercentage: 0, rotation: 0, size: 'large', position: 'center' }] },
-        null
-      ]
-    ],
     correctAnswer: 'E',
     options: {
       A: { elements: [{ shape: 'circle', color: '#FFA500', fillPercentage: 30, rotation: 0, size: 'medium', position: 'center' }] },

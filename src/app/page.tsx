@@ -213,7 +213,7 @@ export default async function Home() {
           </p>
         </div>
       <QuizQuestion />
-      <SVGShapeQuiz />
+      {/* <SVGShapeQuiz /> */}
 
       {/* <ContactSection /> */}
     </>
