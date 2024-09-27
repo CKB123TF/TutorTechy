@@ -20,6 +20,7 @@ import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import QuizQuestion from '@/components/Questions'
+import SVGShapeQuiz from '@/components/Exam';
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
 const clients = [
@@ -211,7 +212,8 @@ export default async function Home() {
                 Try out an example question!
           </p>
         </div>
-      <QuizQuestion />
+      {/* <QuizQuestion /> */}
+      <SVGShapeQuiz />
 
       {/* <ContactSection /> */}
     </>
