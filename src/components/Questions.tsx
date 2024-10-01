@@ -882,7 +882,7 @@ const questions: Question[] = [
                   { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' },
                   { shape: 'circle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'smaller', position: 'top-left' },
                   { shape: 'circle', color: '#000000', fillPercentage: 0, rotation: 0, size: 'smaller', position: 'top-right' },
-                  { shape: 'circle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smaller', position: 'middle-right' }
+                  { shape: 'circle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smaller', position: 'middle-left' }
                 ] },
                 null
               ]
