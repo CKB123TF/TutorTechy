@@ -596,9 +596,9 @@ const questions: Question[] = [
               ],
               [
                 { elements: [
-                  { shape: 'triangle', color: '#000000', fillPercentage: 100, rotation: 135, size: 'smaller', coordinates: {x: -16,  y: 28} },
-                  { shape: 'triangle', color: '#000000', fillPercentage: 100, rotation: -45, size: 'smaller', coordinates: {x: 15,  y: -28} },                  
-                  { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 135, size: 'large', position: 'center' }
+                    { shape: 'triangle', color: '#000000', fillPercentage: 100, rotation: -45, size: 'smaller', coordinates: {x: -28,  y: 16} },
+                    { shape: 'triangle', color: '#000000', fillPercentage: 100, rotation: 135, size: 'smaller', coordinates: {x: 28, y: -15} },
+                    { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 135, size: 'large', position: 'center' }
                 ] },
                 { elements: [
                   { shape: 'triangle', color: '#000000', fillPercentage: 0, rotation: -45, size: 'smaller', coordinates: {x: 15,  y: -28} },
