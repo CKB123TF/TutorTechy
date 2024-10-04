@@ -1,0 +1,209 @@
+           // TopRight Bottom coordinates: {x: 28, y: -15}
+            // TopRight Top  coordinates: {x: 15,  y: -28}
+            // BottomLeft Top coordinates: {x: -30,  y: 16}
+            // BottomLeft Bottom coordinates: {x: -16,  y: 28}
+
+{
+  "id": 4927,
+  "matrix": [
+    [
+      {
+        "elements": [
+          {
+            "shape": "triangle",
+            "fillPercentage": 100,
+            "position": "middle-left",
+            "size": "smaller"
+          },
+          {
+            "shape": "square",
+            "fillPercentage": 0,
+            "position": "center",
+            "size": "smaller"
+          },
+          {
+            "shape": "circle",
+            "fillPercentage": 100,
+            "position": "middle-right",
+            "size": "smaller"
+          }
+        ]
+      },
+      {
+        "elements": [
+          {
+            "shape": "circle",
+            "fillPercentage": 0,
+            "position": "middle-left",
+            "size": "smaller"
+          },
+          {
+            "shape": "triangle",
+            "fillPercentage": 100,
+            "position": "center",
+            "size": "smaller"
+          },
+          {
+            "shape": "square",
+            "fillPercentage": 100,
+            "position": "middle-right",
+            "size": "smaller"
+          }
+        ]
+      },
+      {
+        "elements": [
+          {
+            "shape": "square",
+            "fillPercentage": 100,
+            "position": "middle-left",
+            "size": "smaller"
+          },
+          {
+            "shape": "circle",
+            "fillPercentage": 100,
+            "position": "center",
+            "size": "smaller"
+          },
+          null
+        ]
+      }
+    ],
+    "correctAnswer": "B",
+    "options": {
+      "A": {
+        "elements": [
+          {
+            "shape": "triangle",
+            "fillPercentage": 0,
+            "position": "middle-left",
+            "size": "smaller"
+          },
+          {
+            "shape": "square",
+            "fillPercentage": 0,
+            "position": "center",
+            "size": "smaller"
+          },
+          {
+            "shape": "circle",
+            "fillPercentage": 0,
+            "position": "middle-right",
+            "size": "smaller"
+          }
+        ]
+      },
+      "B": {
+        "elements": [
+          {
+            "shape": "triangle",
+            "fillPercentage": 0,
+            "position": "middle-left",
+            "size": "smaller"
+          },
+          {
+            "shape": "square",
+            "fillPercentage": 100,
+            "position": "center",
+            "size": "smaller"
+          },
+          {
+            "shape": "circle",
+            "fillPercentage": 0,
+            "position": "middle-right",
+            "size": "smaller"
+          }
+        ]
+      },
+      "C": {
+        "elements": [
+          {
+            "shape": "square",
+            "fillPercentage": 0,
+            "position": "middle-left",
+            "size": "smaller"
+          },
+          {
+            "shape": "triangle",
+            "fillPercentage": 100,
+            "position": "center",
+            "size": "smaller"
+          },
+          {
+            "shape": "circle",
+            "fillPercentage": 100,
+            "position": "middle-right",
+            "size": "smaller"
+          }
+        ]
+      },
+      "D": {
+        "elements": [
+          {
+            "shape": "circle",
+            "fillPercentage": 100,
+            "position": "middle-left",
+            "size": "smaller"
+          },
+          {
+            "shape": "triangle",
+            "fillPercentage": 0,
+            "position": "center",
+            "size": "smaller"
+          },
+          {
+            "shape": "square",
+            "fillPercentage": 0,
+            "position": "middle-right",
+            "size": "smaller"
+          }
+        ]
+      },
+      "E": {
+        "elements": [
+          {
+            "shape": "triangle",
+            "fillPercentage": 100,
+            "position": "middle-left",
+            "size": "smaller"
+          },
+          {
+            "shape": "circle",
+            "fillPercentage": 0,
+            "position": "center",
+            "size": "smaller"
+          },
+          {
+            "shape": "square",
+            "fillPercentage": 100,
+            "position": "middle-right",
+            "size": "smaller"
+          }
+        ]
+      },
+      "F": {
+        "elements": [
+          {
+            "shape": "square",
+            "fillPercentage": 100,
+            "position": "middle-left",
+            "size": "smaller"
+          },
+          {
+            "shape": "triangle",
+            "fillPercentage": 0,
+            "position": "center",
+            "size": "smaller"
+          },
+          {
+            "shape": "circle",
+            "fillPercentage": 100,
+            "position": "middle-right",
+            "size": "smaller"
+          }
+        ]
+      }
+    },
+    "advice": "Observe the pattern in each row and column. In the first row, the shapes cycle through triangle, square, circle, with the fill alternating between filled and unfilled. The second row follows the same pattern, but with the cycle shifted. In the third row, the cycle continues with the square filled, circle filled, and the bottom-right cell should follow the pattern by having a triangle that is unfilled."
+  }
+}

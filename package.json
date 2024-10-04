@@ -10,6 +10,7 @@
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.3",
     "@headlessui/react": "^2.1.8",
     "@heroicons/react": "^2.1.5",
     "@leafac/rehype-shiki": "^2.2.1",

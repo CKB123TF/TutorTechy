@@ -18,9 +18,9 @@ type AreaPosition =
   
   interface SVGElementBase {
     shape: Shape;
-    color: Color;
+    color?: Color;
     fillPercentage: FillPercentage;
-    rotation: Rotation;
+    rotation?: Rotation;
     size: Size;
   }
 
@@ -50,7 +50,7 @@ interface Question {
 
 type Coordinates = { x: number; y: number };
 
-const ShapeSVG: React.FC<SVGElement> = ({ shape, color, fillPercentage, rotation, size }) => {
+const ShapeSVG: React.FC<SVGElement> = ({ shape, color='#000000', fillPercentage, rotation=0, size }) => {
   const getPath = (shape: Shape): string => {
     switch (shape) {
       case 'line':
@@ -926,7 +926,1225 @@ const questions: Question[] = [
               ] }
             },
             advice: "Snakes are an interesting animal, I like the way that they slither and hide beneath things"
-          }
+          },
+          {
+            id: 11,
+            matrix: [
+              [
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                }
+              ],
+              [
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                }
+              ],
+              [
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                null
+              ]
+            ],
+            correctAnswer: "C",
+            options: {
+              A: {
+                elements: [
+                  { shape: "circle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              B: {
+                elements: [
+                  { shape: "square", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              C: {
+                elements: [
+                  { shape: "circle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              D: {
+                elements: [
+                  { shape: "triangle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              E: {
+                elements: [
+                  { shape: "square", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              F: {
+                elements: [
+                  { shape: "circle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              }
+            },
+            advice: "Look for patterns in shape positions and fill percentages both horizontally and vertically. Pay attention to how the shapes rotate through the cells in each row and column."
+          },
+          {
+            id: 12,
+            matrix: [
+              [
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                }
+              ],
+              [
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                }
+              ],
+              [
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                null
+              ]
+            ],
+            correctAnswer: "D",
+            options: {
+              A: {
+                elements: [
+                  { shape: "square", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              B: {
+                elements: [
+                  { shape: "triangle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              C: {
+                elements: [
+                  { shape: "circle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              D: {
+                elements: [
+                  { shape: "square", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              E: {
+                elements: [
+                  { shape: "triangle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              F: {
+                elements: [
+                  { shape: "circle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              }
+            },
+            advice: "Observe how the shapes and their fill percentages change both diagonally and in zigzag patterns across the matrix."
+          },
+          {
+            id: 13,
+            matrix: [
+              [
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                }
+              ],
+              [
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                }
+              ],
+              [
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                  ]
+                },
+                null
+              ]
+            ],
+            correctAnswer: "B",
+            options: {
+              A: {
+                elements: [
+                  { shape: "triangle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              B: {
+                elements: [
+                  { shape: "triangle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              C: {
+                elements: [
+                  { shape: "circle", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              D: {
+                elements: [
+                  { shape: "square", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              E: {
+                elements: [
+                  { shape: "circle", fillPercentage: 0, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              },
+              F: {
+                elements: [
+                  { shape: "square", fillPercentage: 100, position: "middle-left", rotation: 0, size: "smaller" },
+                  { shape: "circle", fillPercentage: 0, position: "center", rotation: 0, size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "middle-right", rotation: 0, size: "smaller" }
+                ]
+              }
+            },
+            advice: "Look for patterns in shape rotations and fill percentages both horizontally and vertically. The center shape in each cell follows a distinct pattern from the outer shapes."
+          },
+          {
+            id: 14,
+            matrix: [
+              [
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "center", size: "smaller" },
+                    { shape: "circle", fillPercentage: 100, position: "middle-right", size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 0, position: "middle-left", size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "center", size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "middle-right", size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 100, position: "middle-left", size: "smaller" },
+                    { shape: "circle", fillPercentage: 0, position: "center", size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "middle-right", size: "smaller" }
+                  ]
+                }
+              ],
+              [
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 0, position: "middle-left", size: "smaller" },
+                    { shape: "circle", fillPercentage: 100, position: "center", size: "smaller" },
+                    { shape: "triangle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "triangle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "center", size: "smaller" },
+                    { shape: "circle", fillPercentage: 100, position: "middle-right", size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 0, position: "middle-left", size: "smaller" },
+                    { shape: "triangle", fillPercentage: 100, position: "center", size: "smaller" },
+                    { shape: "square", fillPercentage: 0, position: "middle-right", size: "smaller" }
+                  ]
+                }
+              ],
+              [
+                {
+                  elements: [
+                    { shape: "circle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+                    { shape: "triangle", fillPercentage: 0, position: "center", size: "smaller" },
+                    { shape: "square", fillPercentage: 100, position: "middle-right", size: "smaller" }
+                  ]
+                },
+                {
+                  elements: [
+                    { shape: "square", fillPercentage: 0, position: "middle-left", size: "smaller" },
+                    { shape: "circle", fillPercentage: 100, position: "center", size: "smaller" },
+                    { shape: "triangle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+                  ]
+                },
+                null
+              ]
+            ],
+            correctAnswer: "A",
+            options: {
+              A: {
+                elements: [
+                  { shape: "triangle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "center", size: "smaller" },
+                  { shape: "circle", fillPercentage: 100, position: "middle-right", size: "smaller" }
+                ]
+              },
+              B: {
+                elements: [
+                  { shape: "square", fillPercentage: 100, position: "middle-left", size: "smaller" },
+                  { shape: "circle", fillPercentage: 0, position: "center", size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "middle-right", size: "smaller" }
+                ]
+              },
+              C: {
+                elements: [
+                  { shape: "circle", fillPercentage: 0, position: "middle-left", size: "smaller" },
+                  { shape: "triangle", fillPercentage: 100, position: "center", size: "smaller" },
+                  { shape: "square", fillPercentage: 0, position: "middle-right", size: "smaller" }
+                ]
+              },
+              D: {
+                elements: [
+                  { shape: "triangle", fillPercentage: 0, position: "middle-left", size: "smaller" },
+                  { shape: "square", fillPercentage: 100, position: "center", size: "smaller" },
+                  { shape: "circle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+                ]
+              },
+              E: {
+                elements: [
+                  { shape: "square", fillPercentage: 0, position: "middle-left", size: "smaller" },
+                  { shape: "circle", fillPercentage: 100, position: "center", size: "smaller" },
+                  { shape: "triangle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+                ]
+              },
+              F: {
+                elements: [
+                  { shape: "circle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+                  { shape: "triangle", fillPercentage: 0, position: "center", size: "smaller" },
+                  { shape: "square", fillPercentage: 100, position: "middle-right", size: "smaller" }
+                ]
+              }
+            },
+            advice: "Pay attention to how the shapes and fill percentages change in a cyclic pattern both horizontally and vertically. The center shape follows a different pattern from the outer shapes."
+          },
+          {
+            id: 8512,
+            matrix: [
+            [
+            {
+            elements: [
+            { shape: "triangle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+            { shape: "square", fillPercentage: 0, position: "center", size: "smaller" },
+            { shape: "circle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+            ]
+            },
+            {
+            elements: [
+            { shape: "circle", fillPercentage: 0, position: "middle-left", size: "smaller" },
+            { shape: "triangle", fillPercentage: 100, position: "center", size: "smaller" },
+            { shape: "square", fillPercentage: 100, position: "middle-right", size: "smaller" }
+            ]
+            },
+            {
+            elements: [
+            { shape: "square", fillPercentage: 100, position: "middle-left", size: "smaller" },
+            { shape: "circle", fillPercentage: 0, position: "center", size: "smaller" },
+            { shape: "triangle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+            ]
+            }
+            ],
+            [
+            {
+            elements: [
+            { shape: "circle", fillPercentage: 0, position: "middle-left", size: "smaller" },
+            { shape: "square", fillPercentage: 100, position: "center", size: "smaller" },
+            { shape: "triangle", fillPercentage: 100, position: "middle-right", size: "smaller" }
+            ]
+            },
+            {
+            elements: [
+            { shape: "triangle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+            { shape: "circle", fillPercentage: 0, position: "center", size: "smaller" },
+            { shape: "square", fillPercentage: 0, position: "middle-right", size: "smaller" }
+            ]
+            },
+            {
+            elements: [
+            { shape: "square", fillPercentage: 0, position: "middle-left", size: "smaller" },
+            { shape: "triangle", fillPercentage: 100, position: "center", size: "smaller" },
+            { shape: "circle", fillPercentage: 100, position: "middle-right", size: "smaller" }
+            ]
+            }
+            ],
+            [
+            {
+            elements: [
+            { shape: "triangle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+            { shape: "circle", fillPercentage: 100, position: "center", size: "smaller" },
+            { shape: "square", fillPercentage: 0, position: "middle-right", size: "smaller" }
+            ]
+            },
+            {
+            elements: [
+            { shape: "square", fillPercentage: 0, position: "middle-left", size: "smaller" },
+            { shape: "triangle", fillPercentage: 100, position: "center", size: "smaller" },
+            { shape: "circle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+            ]
+            },
+            null
+            ]
+            ],
+            correctAnswer: "D",
+            options: {
+            A: {
+            elements: [
+            { shape: "circle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+            { shape: "square", fillPercentage: 100, position: "center", size: "smaller" },
+            { shape: "triangle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+            ]
+            },
+            B: {
+            elements: [
+            { shape: "triangle", fillPercentage: 0, position: "middle-left", size: "smaller" },
+            { shape: "square", fillPercentage: 100, position: "center", size: "smaller" },
+            { shape: "circle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+            ]
+            },
+            C: {
+            elements: [
+            { shape: "square", fillPercentage: 0, position: "middle-left", size: "smaller" },
+            { shape: "circle", fillPercentage: 0, position: "center", size: "smaller" },
+            { shape: "triangle", fillPercentage: 100, position: "middle-right", size: "smaller" }
+            ]
+            },
+            D: {
+            elements: [
+            { shape: "circle", fillPercentage: 0, position: "middle-left", size: "smaller" },
+            { shape: "square", fillPercentage: 100, position: "center", size: "smaller" },
+            { shape: "triangle", fillPercentage: 0, position: "middle-right", size: "smaller" }
+            ]
+            },
+            E: {
+            elements: [
+            { shape: "square", fillPercentage: 100, position: "middle-left", size: "smaller" },
+            { shape: "triangle", fillPercentage: 0, position: "center", size: "smaller" },
+            { shape: "circle", fillPercentage: 100, position: "middle-right", size: "smaller" }
+            ]
+            },
+            F: {
+            elements: [
+            { shape: "circle", fillPercentage: 100, position: "middle-left", size: "smaller" },
+            { shape: "triangle", fillPercentage: 100, position: "center", size: "smaller" },
+            { shape: "square", fillPercentage: 0, position: "middle-right", size: "smaller" }
+            ]
+            }
+            },
+            advice: 'To solve this puzzle, focus on the pattern of shapes and their fill percentages in each row and column'
+            },
+            {
+                id: 3274,
+                matrix: [
+                [
+                {
+                elements: [
+                {
+                shape: "triangle",
+                fillPercentage: 100,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "square",
+                fillPercentage: 100,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 0,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                {
+                elements: [
+                {
+                shape: "circle",
+                fillPercentage: 0,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "triangle",
+                fillPercentage: 0,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "square",
+                fillPercentage: 100,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                {
+                elements: [
+                {
+                shape: "square",
+                fillPercentage: 100,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 100,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "triangle",
+                fillPercentage: 0,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                }
+                ],
+                [
+                {
+                elements: [
+                {
+                shape: "square",
+                fillPercentage: 0,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "triangle",
+                fillPercentage: 100,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 0,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                {
+                elements: [
+                {
+                shape: "circle",
+                fillPercentage: 100,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "square",
+                fillPercentage: 0,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "triangle",
+                fillPercentage: 100,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                {
+                elements: [
+                {
+                shape: "triangle",
+                fillPercentage: 0,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 0,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "square",
+                fillPercentage: 0,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                }
+                ],
+                [
+                {
+                elements: [
+                {
+                shape: "circle",
+                fillPercentage: 100,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "square",
+                fillPercentage: 0,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "triangle",
+                fillPercentage: 0,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                {
+                elements: [
+                {
+                shape: "triangle",
+                fillPercentage: 0,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 100,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "square",
+                fillPercentage: 100,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                null
+                ]
+                ],
+                correctAnswer: "C",
+                options: {
+                A: {
+                elements: [
+                {
+                shape: "square",
+                fillPercentage: 100,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "triangle",
+                fillPercentage: 100,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 0,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                B: {
+                elements: [
+                {
+                shape: "triangle",
+                fillPercentage: 100,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "square",
+                fillPercentage: 100,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 0,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                C: {
+                elements: [
+                {
+                shape: "square",
+                fillPercentage: 0,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "triangle",
+                fillPercentage: 100,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 100,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                D: {
+                elements: [
+                {
+                shape: "circle",
+                fillPercentage: 0,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "triangle",
+                fillPercentage: 0,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "square",
+                fillPercentage: 100,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                E: {
+                elements: [
+                {
+                shape: "triangle",
+                fillPercentage: 100,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 100,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "square",
+                fillPercentage: 0,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                },
+                F: {
+                elements: [
+                {
+                shape: "square",
+                fillPercentage: 0,
+                position: "middle-left",
+                size: "smaller"
+                },
+                {
+                shape: "triangle",
+                fillPercentage: 0,
+                position: "center",
+                size: "smaller"
+                },
+                {
+                shape: "circle",
+                fillPercentage: 0,
+                position: "middle-right",
+                size: "smaller"
+                }
+                ]
+                }
+                },
+                advice: "1. Look for patterns in each row and column. Notice how the shapes shift one position to the right in each row. 2. Observe that the fill percentages alternate between 100% and 0% for each shape down the columns. 3. Using these patterns, the missing cell should have a square at 0% fill on the left, a triangle at 100% fill in the center, and a circle at 100% fill on the right. 4. The correct answer matching this pattern is option C."
+                },
+                {
+                    "id": 8263574901,
+                    "matrix": [
+                      [
+                        {
+                          "elements": [
+                            {
+                              "shape": "triangle",
+                              "fillPercentage": 100,
+                              "position": "middle-left",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "circle",
+                              "fillPercentage": 0,
+                              "position": "center",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "square",
+                              "fillPercentage": 100,
+                              "position": "middle-right",
+                              "size": "smaller"
+                            }
+                          ]
+                        },
+                        {
+                          "elements": [
+                            {
+                              "shape": "square",
+                              "fillPercentage": 100,
+                              "position": "middle-left",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "circle",
+                              "fillPercentage": 100,
+                              "position": "center",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "triangle",
+                              "fillPercentage": 100,
+                              "position": "middle-right",
+                              "size": "smaller"
+                            }
+                          ]
+                        },
+                        {
+                          "elements": [
+                            {
+                              "shape": "triangle",
+                              "fillPercentage": 0,
+                              "position": "middle-left",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "square",
+                              "fillPercentage": 100,
+                              "position": "center",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "circle",
+                              "fillPercentage": 0,
+                              "position": "middle-right",
+                              "size": "smaller"
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "elements": [
+                            {
+                              "shape": "square",
+                              "fillPercentage": 100,
+                              "position": "middle-left",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "triangle",
+                              "fillPercentage": 0,
+                              "position": "center",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "circle",
+                              "fillPercentage": 0,
+                              "position": "middle-right",
+                              "size": "smaller"
+                            }
+                          ]
+                        },
+                        {
+                          "elements": [
+                            {
+                              "shape": "circle",
+                              "fillPercentage": 0,
+                              "position": "middle-left",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "triangle",
+                              "fillPercentage": 100,
+                              "position": "center",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "square",
+                              "fillPercentage": 0,
+                              "position": "middle-right",
+                              "size": "smaller"
+                            }
+                          ]
+                        },
+                        {
+                          "elements": [
+                            {
+                              "shape": "square",
+                              "fillPercentage": 0,
+                              "position": "middle-left",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "circle",
+                              "fillPercentage": 100,
+                              "position": "center",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "triangle",
+                              "fillPercentage": 0,
+                              "position": "middle-right",
+                              "size": "smaller"
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "elements": [
+                            {
+                              "shape": "circle",
+                              "fillPercentage": 0,
+                              "position": "middle-left",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "square",
+                              "fillPercentage": 100,
+                              "position": "center",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "triangle",
+                              "fillPercentage": 100,
+                              "position": "middle-right",
+                              "size": "smaller"
+                            }
+                          ]
+                        },
+                        {
+                          "elements": [
+                            {
+                              "shape": "triangle",
+                              "fillPercentage": 100,
+                              "position": "middle-left",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "square",
+                              "fillPercentage": 0,
+                              "position": "center",
+                              "size": "smaller"
+                            },
+                            {
+                              "shape": "circle",
+                              "fillPercentage": 100,
+                              "position": "middle-right",
+                              "size": "smaller"
+                            }
+                          ]
+                        },
+                        null
+                      ]
+                    ],
+                    "options": {
+                      "A": {
+                        "elements": [
+                          {
+                            "shape": "circle",
+                            "fillPercentage": 100,
+                            "position": "middle-left",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "triangle",
+                            "fillPercentage": 0,
+                            "position": "center",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "square",
+                            "fillPercentage": 100,
+                            "position": "middle-right",
+                            "size": "smaller"
+                          }
+                        ]
+                      },
+                      "B": {
+                        "elements": [
+                          {
+                            "shape": "triangle",
+                            "fillPercentage": 0,
+                            "position": "middle-left",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "square",
+                            "fillPercentage": 100,
+                            "position": "center",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "circle",
+                            "fillPercentage": 100,
+                            "position": "middle-right",
+                            "size": "smaller"
+                          }
+                        ]
+                      },
+                      "C": {
+                        "elements": [
+                          {
+                            "shape": "square",
+                            "fillPercentage": 100,
+                            "position": "middle-left",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "triangle",
+                            "fillPercentage": 100,
+                            "position": "center",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "circle",
+                            "fillPercentage": 0,
+                            "position": "middle-right",
+                            "size": "smaller"
+                          }
+                        ]
+                      },
+                      "D": {
+                        "elements": [
+                          {
+                            "shape": "circle",
+                            "fillPercentage": 0,
+                            "position": "middle-left",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "square",
+                            "fillPercentage": 0,
+                            "position": "center",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "triangle",
+                            "fillPercentage": 100,
+                            "position": "middle-right",
+                            "size": "smaller"
+                          }
+                        ]
+                      },
+                      "E": {
+                        "elements": [
+                          {
+                            "shape": "triangle",
+                            "fillPercentage": 100,
+                            "position": "middle-left",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "circle",
+                            "fillPercentage": 0,
+                            "position": "center",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "square",
+                            "fillPercentage": 0,
+                            "position": "middle-right",
+                            "size": "smaller"
+                          }
+                        ]
+                      },
+                      "F": {
+                        "elements": [
+                          {
+                            "shape": "square",
+                            "fillPercentage": 0,
+                            "position": "middle-left",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "circle",
+                            "fillPercentage": 100,
+                            "position": "center",
+                            "size": "smaller"
+                          },
+                          {
+                            "shape": "triangle",
+                            "fillPercentage": 0,
+                            "position": "middle-right",
+                            "size": "smaller"
+                          }
+                        ]
+                      }
+                    },
+                    "correctAnswer": "B",
+                    "advice": "Observe that each row and column has a pattern: the shape filled in the first cell is unfilled in the second cell and filled again in the third cell. Additionally, each row and column has one of each shape (triangle, square, circle). Following these rules, the missing cell should have an unfilled triangle, a filled square, and a filled circle."
+                  }
 ];
 
 const SVGShapeQuiz: React.FC = () => {
