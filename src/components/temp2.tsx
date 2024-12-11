@@ -133,7 +133,8 @@ interface Question {
     return (
       <svg viewBox="-50 -50 100 100" xmlns="http://www.w3.org/2000/svg">
         {elements.map((element, index) => {
-          const { x, y } = !!element.coordinates ? element.coordinates : getPosition(element.position);
+          const coordinates = element.coordinates || getPosition(element.position);
+          const { x = 0, y = 0 } = coordinates || {};
           return (
             <g key={index} transform={`translate(${x}, ${y})`}>
               <ShapeSVG {...element} />
@@ -160,6 +161,94 @@ interface Question {
     </div>
   );
 
+  const randomDifficulty = Math.floor(Math.random() * 10) + 1;
+  const randLetter = String.fromCharCode(Math.floor(Math.random() * 6) + 65); // Generates A-F
+
+  const prompt = `
+  You are an AI specialized in creating complex matrix reasoning questions for cognitive assessments. Your task is to generate a challenging and unique 3x3 matrix puzzle that tests visual pattern recognition skills. 
+
+  First, let's establish the parameters for this puzzle:
+
+  difficulty: ${randomDifficulty}
+  letter: ${randLetter}
+
+  Now, follow these steps to create a valid and logically consistent matrix reasoning question:
+  
+  1. Matrix Structure:
+  - Generate a 3x3 matrix.
+  - Each cell must contain an 'elements' array with MatrixElement objects.
+  - Create multiple patterns using diagonals, rows, and columns.
+  - Ensure the matrix challenges users with creative combinations of positions, rotations, colors, and number of shapes.
+
+  2. Shape Properties:
+  - Use only these shapes (case sensitive, lowercase): circle, square, pentagon, line, triangle.
+  - Set all shapes to size 0.3.
+  - Avoid overlapping shapes in the same Position.
+  - Use only Position values (x,y) of 0, 1, or 2.
+  - Use only lowercase, valid SwiftUI Color values.
+  - Do not apply rotation to circles.
+  - Only apply a rotation of either 0 or 45 degrees to squares.
+  - Set FillPercentage between 0-100.
+  - Set Rotation between 0-360 (except for circles).
+  - Do not have shapes overlap. No two shapes should have the same Position values in the same cell.
+
+  3. Answer Options:
+  - Create one unique correct answer and several incorrect options.
+
+  4. JSON Structure:
+  Your final output must be valid, parseable JSON with no leading/trailing text or backslashes. Use this structure:
+
+  {
+      id: 1,
+      "matrix": [
+      [
+          { elements: [{ shape: 'circle', color: '#000000', fillPercentage: 0,  rotation: 0, size: 'large', position: 'center' }] },
+          {...},
+          {...}
+      ],
+      [
+          {...},
+          {...},
+          {...}
+      ],
+      [
+          {...},
+          {...},
+          null
+      ]
+      ],
+      "correctAnswer": "F",
+      "options": {
+      "A": {
+          "elements": [...],
+      },
+      // B through F
+      },
+      "advice": "Look for patterns in rotation and color changes",
+      "difficulty": 1,
+      "type": "pattern recognition"
+  }
+
+  5. Validation:
+  - Ensure all JSON fields are present and non-null (except for the bottom-right matrix cell, which should be null).
+  - Verify that the matrix is exactly 3x3.
+  - Double-check that all position coordinates, colors, shapes, and other properties are valid according to the constraints.
+
+  6. Advice:
+  - Provide specific advice about the patterns and logic in the question. The schema for advice is "pattern 1 is across every row and has the square move left to right... Pattern 2... Pattern X... Therefore F is the correct answer because... and A is incorrect because the square is rotated incorrectly and the circle is green instead of red... B is wrong because... C is wrong because..." //Make sure that the correct answer is a random value between A-F
+
+  a. Define the primary pattern(s) for each row, column, and diagonal. 
+  b. List out the specific attributes (shape, color, rotation, etc.) that change in each pattern. Make sure to think about whether a visible change is occurring (e.g. a circle being rotated is not a visible change, but a color change is).
+  c. Describe how these patterns interact or combine to create the final matrix. Save this output and place it directly into the "advice" field of the JSON.
+  d. Plan out the contents of each cell, ensuring consistency.
+  e. Remove one of the cells from the matrix and remember and set it as letter ${randLetter} among the options. 
+  f. Plan out 5 incorrect options that break one of the patterns and make sure that it isn't visually the same as the correct option. Remember these options and have them be the incorrect alternative options along with the explanations of why they are wrong.
+
+  Then, review your plan to confirm that the logic is sound and there are no contradictions or unintended patterns.
+
+  After your design process, generate the final JSON output without any additional text or explanations.
+  `;
+
   const initialQuestions: Question[] = [
     {
         id: 1,
@@ -176,7 +265,7 @@ interface Question {
           ],
           [
             { elements: [{ shape: 'circle', color: '#00FFFF', fillPercentage: 100,  rotation: 0, size: 'large', position: 'center' }] },
-            { elements: [{ shape: 'square', color: '#800080', fillPercentage: 0,  rotation: 0, size: 'large', position: 'center'}] },
+            { elements: [{ shape: 'square', color: '#800080', fillPercentage: 0,  rotation: 0, size: 'large', position: 'center' }] },
             null
           ]
         ],
@@ -479,10 +568,11 @@ interface Question {
               { shape: 'square', color: '#000000', fillPercentage: 0, rotation: 0, size: 'smaller', position: 'bottom-left' }
             ] },
             F: { elements: [
-              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'large', position: 'center' },
-              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'large', position: 'center' },
-              { shape: 'circle', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smallest', position: 'top-left' },
-              { shape: 'square', color: '#000000', fillPercentage: 100, rotation: 0, size: 'smaller', position: 'bottom-right' }
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'medium', position: 'top-center' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'medium', position: 'middle-left' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 90, size: 'medium', position: 'middle-right' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 0, size: 'medium', position: 'bottom-center' },
+              { shape: 'line', color: '#000000', fillPercentage: 100, rotation: 45, size: 'medium', position: 'center' }
             ] }
           },
             advice: "Observe the pattern of the circle and square positions in each cell. Notice how they move relative to each other and the cross shape across rows and columns.",
@@ -992,11 +1082,10 @@ interface Question {
               try {
                 console.log('generating question')
                 const completion = await anthropic.messages.create({
-                  model: "claude-3-5-sonnet-20240620",
-                  max_tokens: 2500,
-                  system: "You are to respond to any message with a JSON Object that can be parsed without issues. Please make absolute sure that this is the case when you respond.",
+                 model: "claude-3-5-sonnet-20241022",
+                  max_tokens: 5000,
                   messages: [
-                    { role: "user", content: `You are an AI designed to generate an JSON object representing a 3x3 matrix puzzle with shapes. The puzzle difficulty ranges from 1-10, as specified by the input variable. Your task is to create a complete JSON object with a matrix, options, correct answer, and advice.First, I will provide you with the difficulty level:<difficulty>${difficulty}</difficulty>Now, follow these steps to generate the JSON object:1. Create a 3x3 matrix where each cell contains 3 objects (triangles, squares, or circles). The objects can be filled or unfilled. The complexity of the pattern should correspond to the given difficulty level. The position should only ever be \"middle-left\", \"center\", or \"middle-right\" and the shape should always be \"smaller\".2. Leave the last cell (bottom-right) of the matrix empty (null).3. Generate 6 potential options (A through F) for the final cell. Make sure only one option is correct and the others are reasonable but incorrect guesses. Each option should have a 'type' property indicating what aspect it's testing (e.g., 'shape', 'color', 'pattern').4. Determine the correct answer (A, B, C, D, E, or F) based on the pattern you've created.5. Write a step-by-step explanation of how to solve the puzzle, which will be used as the 'advice' field.6. Compile all this information into a JSON object with the following structure: { id: [generate a random number], matrix: [[ { elements: [ { shape: \"triangle\", fillPercentage: 100, position: \"middle-left\", size: \"smaller\" }, { shape: \"square\", fillPercentage: 0, position: \"center\", size: \"smaller\" }, { shape: \"circle\", fillPercentage: 100, position: \"middle-right\", size: \"smaller\" } ] },...],[...],[..., null]], correctAnswer: \"[A-F]\", options: { A: { elements: [ { shape: \"triangle\", fillPercentage: 100, position: \"middle-left\", size: \"smaller\" }, { shape: \"square\", fillPercentage: 0, position: \"center\", size: \"smaller\" }, { shape: \"circle\", fillPercentage: 100, position: \"middle-right\", size: \"smaller\" } ], type: \"shape\" },...}, advice: \"...\", difficulty: [1-10], type: \"[e.g., pattern recognition, shape analysis, etc.]\" }Make sure the pattern in the matrix and the options are consistent with the given difficulty level. For lower difficulties (1-3), use simple patterns with minimal variation. For medium difficulties (4-7), introduce more complex patterns or multiple rules. For high difficulties (8-10), create intricate patterns with multiple interacting rules.Think through the puzzle carefully to ensure it has only one correct solution and that no two options are identical. Double-check that the 'advice' field accurately explains how to arrive at the correct answer. Output your response as a single JSON object, ensuring it's properly formatted and contains all required fields. Do not include any explanation or additional text outside the object.There should NEVER be any situation where there are two \"options\" that are identical. Make absolute sure that this is never the case.Also make sure that the \"advice\" field is on one single line or else errors can occur.` }
+                    { role: "user", content: prompt }
                   ]});
                 // @ts-ignore
                 const content = completion.content[0].text;
@@ -1036,10 +1125,20 @@ interface Question {
                   </div>
                   <button
                     onClick={generateNewQuestion}
-                    className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 flex items-center mx-auto"
+                    disabled={isLoading}
+                    className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 flex items-center mx-auto disabled:bg-green-300"
                   >
-                    <Plus className="mr-2" size={18} />
-                    Generate New AI Question
+                    {isLoading ? (
+                      <>
+                        <Loader className="animate-spin mr-2" size={18} />
+                        Generating...
+                      </>
+                    ) : (
+                      <>
+                        <Plus className="mr-2" size={18} />
+                        Generate New AI Question
+                      </>
+                    )}
                   </button>
                 </div>
               );
@@ -1065,8 +1164,9 @@ interface Question {
                         </button>
                       </div>
                       {isLoading ? (
-                        <div className="flex justify-center items-center h-60">
-                          <Loader className="animate-spin" size={48} />
+                        <div className="flex flex-col items-center justify-center h-[400px] w-full">
+                          <Loader className="animate-spin h-12 w-12 text-blue-500" />
+                          <p className="mt-4 text-gray-600">Generating new question...</p>
                         </div>
                       ) : (
                         <MatrixDisplay matrix={questions[currentQuestion].matrix} />
