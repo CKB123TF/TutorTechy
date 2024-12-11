@@ -181,16 +181,20 @@ interface Question {
   - Ensure the matrix challenges users with creative combinations of positions, rotations, colors, and number of shapes.
 
   2. Shape Properties:
-  - Use only these shapes (case sensitive, lowercase): circle, square, pentagon, line, triangle.
-  - Set all shapes to size 0.3.
-  - Avoid overlapping shapes in the same Position.
-  - Use only Position values (x,y) of 0, 1, or 2.
-  - Use only lowercase, valid SwiftUI Color values.
-  - Do not apply rotation to circles.
-  - Only apply a rotation of either 0 or 45 degrees to squares.
-  - Set FillPercentage between 0-100.
-  - Set Rotation between 0-360 (except for circles).
-  - Do not have shapes overlap. No two shapes should have the same Position values in the same cell.
+  - Use only these shapes (case sensitive): 'line', 'circle', 'square', 'rectangle', 'triangle', 'pentagon'
+  - Set size to one of: 'smallest', 'smaller', 'small', 'medium', 'large'
+  - Position can be either:
+    a) An AreaPosition string: 'top-left', 'top-left-center', 'top-center', 'top-right-center', 'top-right',
+       'upper-left', 'upper-center', 'upper-right', 'middle-left', 'middle-left-center', 'center',
+       'middle-right-center', 'middle-right', 'lower-left', 'lower-center', 'lower-right',
+       'bottom-left', 'bottom-left-center', 'bottom-center', 'bottom-right-center', 'bottom-right'
+    OR
+    b) Coordinates: { x: number, y: number } where x and y are between -50 and 50
+  - Use hex color values (e.g. '#000000', '#FF0000')
+  - Do not apply rotation to circles
+  - Set fillPercentage between 0-100
+  - Set rotation between 0-360 (except for circles)
+  - Avoid overlapping shapes in the same cell
 
   3. Answer Options:
   - Create one unique correct answer and several incorrect options.
