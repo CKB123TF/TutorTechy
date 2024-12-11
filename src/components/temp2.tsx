@@ -195,6 +195,7 @@ interface Question {
   - Set fillPercentage between 0-100
   - Set rotation between 0-360 (except for circles)
   - Avoid overlapping shapes in the same cell
+  - If there are multiple shapes in a cell, then squares should typically be of size 'smaller' or 'smallest', circles should be of size 'smallest', lines should be of size 'large', triangles should be of size 'smaller', and rectangles should be of size 'smaller'
 
   3. Answer Options:
   - Create one unique correct answer and several incorrect options.
@@ -1093,7 +1094,8 @@ interface Question {
                   ]});
                 // @ts-ignore
                 const content = completion.content[0].text;
-                const parsed = JSON.parse(content)
+                const parsed = JSON.parse(content);
+                console.log('parsed ', parsed);
                 const newQuestion: Question = parsed;
                 setQuestions([newQuestion]);
                 setCurrentQuestion(0);
