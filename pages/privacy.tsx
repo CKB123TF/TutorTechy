@@ -66,7 +66,7 @@ export default function PrivacyPolicy() {
           <p>Your data is stored:</p>
           <ul className={styles.bulletList}>
             <li>Only on your device using secure iOS storage</li>
-            <li>Protected by your device's built-in security</li>
+            <li>Protected by your device&apos;s built-in security</li>
             <li>Never transmitted to any servers</li>
           </ul>
         </div>

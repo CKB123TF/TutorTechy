@@ -32,7 +32,7 @@ export default function TermsOfService() {
           <p>Regarding the books available in Classics:</p>
           <ul className={styles.bulletList}>
             <li>All books are carefully selected from the public domain</li>
-            <li>Texts are provided "as is" without any warranty</li>
+            <li>Texts are provided &quot;as is&quot; without any warranty</li>
             <li>We make best efforts to ensure textual accuracy</li>
             <li>Original author attributions are maintained</li>
           </ul>
@@ -59,7 +59,7 @@ export default function TermsOfService() {
           <ul className={styles.bulletList}>
             <li>The Classics app interface and design</li>
             <li>Our custom typography and themes</li>
-            <li>The app's codebase and functionality</li>
+            <li>The app&apos;s codebase and functionality</li>
             <li>App icons and visual elements</li>
           </ul>
           <p>Your personal annotations and highlights belong to you.</p>

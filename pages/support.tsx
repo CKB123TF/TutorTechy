@@ -10,7 +10,7 @@ export default function Support() {
         <div className={styles.content}>
           <p>Email: ckb@tutortechy.com</p>
           <p>Response time: Within 48 hours</p>
-          <p>We're here to help you get the most out of your reading experience with Classics.</p>
+          <p>We&apos;re here to help you get the most out of your reading experience with Classics.</p>
         </div>
       </div>
 
@@ -24,7 +24,7 @@ export default function Support() {
 
           <div className={styles.faqItem}>
             <h3>How do I customize my reading experience?</h3>
-            <p>IN PROGRESS: Tap the "Aa" button while reading to adjust display options including:</p>
+            <p>IN PROGRESS: Tap the &quot;Aa&quot; button while reading to adjust display options including:</p>
             <ul className={styles.bulletList}>
               <li>Font size and family</li>
               <li>Theme choices (light, dark, sepia)</li>
@@ -39,10 +39,10 @@ export default function Support() {
             <ul className={styles.bulletList}>
               <li>Press and hold to select text</li>
               <li>Adjust the selection across pages as needed</li>
-              <li>Tap "Highlight" in the popup menu</li>
+              <li>Tap &quot;Highlight&quot; in the popup menu</li>
               <li>Optionally add a note</li>
             </ul>
-            <p>Access all highlights in the book's Annotations tab.</p>
+            <p>Access all highlights in the book&apos;s Annotations tab.</p>
           </div>
 
           <div className={styles.faqItem}>
@@ -100,7 +100,7 @@ export default function Support() {
             <li>How it would improve your reading experience</li>
             <li>Any specific use cases</li>
           </ul>
-          <p>Email suggestions to ckb@tutortechy.com with the subject "Classics Feature Request".</p>
+          <p>Email suggestions to ckb@tutortechy.com with the subject &quot;Classics Feature Request&quot;.</p>
         </div>
       </div>
 
