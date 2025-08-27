@@ -3,14 +3,14 @@ import styles from '@/styles/legal.module.css';
 export default function Support() {
   return (
     <div className={styles.legalContainer}>
-      <h1 className={styles.title}>AlgernonIQ Support</h1>
+      <h1 className={styles.title}>Classics Support</h1>
 
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Contact Information</h2>
         <div className={styles.content}>
           <p>Email: ckb@tutortechy.com</p>
-          <p>Response time: Within 24 hours</p>
-          <p>We're here to help you with any questions about your cognitive training journey.</p>
+          <p>Response time: Within 48 hours</p>
+          <p>We're here to help you get the most out of your reading experience with Classics.</p>
         </div>
       </div>
 
@@ -18,39 +18,59 @@ export default function Support() {
         <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
         <div className={styles.content}>
           <div className={styles.faqItem}>
-            <h3>How is my ELO Score Calculated?</h3>
-            <p>Your ELO score is calculated based on your performance across different pattern recognition categories. The score adjusts dynamically based on the difficulty of puzzles you solve and your success rate. Higher scores indicate stronger pattern recognition abilities.</p>
+            <h3>How do I download books for offline reading?</h3>
+            <p>All books in Classics are available offline. Tap the download button next to any book in the library. Once downloaded, books are accessible anytime, even without an internet connection.</p>
           </div>
 
           <div className={styles.faqItem}>
-            <h3>What Do the Radar Charts Show?</h3>
-            <p>The radar charts in your statistics view display your performance across different cognitive categories. Each axis represents a different type of pattern recognition skill, helping you identify your strengths and areas for improvement.</p>
-          </div>
-
-          <div className={styles.faqItem}>
-            <h3>How Does the Difficulty Adjustment Work?</h3>
-            <p>AlgernonIQ automatically adjusts puzzle difficulty based on your performance history and current streak. As you improve in specific pattern types, the app generates more challenging variations to help you grow.</p>
-          </div>
-
-          <div className={styles.faqItem}>
-            <h3>What Are Streaks?</h3>
-            <p>Streaks track your consecutive correct answers. Maintaining streaks helps the app understand your mastery level and adjusts the difficulty accordingly. Your current streak is displayed during puzzle solving.</p>
-          </div>
-
-          <div className={styles.faqItem}>
-            <h3>How Can I Track My Progress?</h3>
-            <p>Access your detailed statistics by tapping the "View Stats" button. Here you'll find your:</p>
+            <h3>How do I customize my reading experience?</h3>
+            <p>IN PROGRESS: Tap the "Aa" button while reading to adjust display options including:</p>
             <ul className={styles.bulletList}>
-              <li>Overall ELO score</li>
-              <li>Performance radar chart</li>
-              <li>Top strengths</li>
-              <li>Areas for improvement</li>
+              <li>Font size and family</li>
+              <li>Theme choices (light, dark, sepia)</li>
+              <li>Line spacing and margins</li>
+              <li>Brightness control</li>
             </ul>
           </div>
 
           <div className={styles.faqItem}>
-            <h3>Can I Use the App Offline?</h3>
-            <p>Yes, AlgernonIQ works offline. Your progress syncs automatically when you're back online through our secure Supabase integration.</p>
+            <h3>How do I create and manage highlights?</h3>
+            <p>To highlight text:</p>
+            <ul className={styles.bulletList}>
+              <li>Press and hold to select text</li>
+              <li>Adjust the selection across pages as needed</li>
+              <li>Tap "Highlight" in the popup menu</li>
+              <li>Optionally add a note</li>
+            </ul>
+            <p>Access all highlights in the book's Annotations tab.</p>
+          </div>
+
+          <div className={styles.faqItem}>
+            <h3>How do I navigate through a book?</h3>
+            <p>Classics offers multiple navigation options:</p>
+            <ul className={styles.bulletList}>
+              <li>Tap screen edges or swipe to turn pages</li>
+              <li>Use the table of contents to jump to chapters</li>
+            </ul>
+          </div>
+
+          <div className={styles.faqItem}>
+            <h3>Will I lose my progress if I delete the app?</h3>
+            <p>Since Classics is offline-only:</p>
+            <ul className={styles.bulletList}>
+              <li>Reading progress, highlights, and notes are stored locally</li>
+              <li>Deleting the app removes all data</li>
+              <li>Regular device backups are recommended</li>
+            </ul>
+          </div>
+
+          <div className={styles.faqItem}>
+            <h3>How much storage space do books use?</h3>
+            <p>Book sizes vary but are typically small:</p>
+            <ul className={styles.bulletList}>
+              <li>Most books are under 1MB</li>
+              <li>Delete downloaded books anytime to free up space</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -58,54 +78,41 @@ export default function Support() {
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Bug Reporting</h2>
         <div className={styles.content}>
-          <p>To report a bug, please email us with the following information:</p>
+          <p>To report a bug, please email us with:</p>
           <ul className={styles.bulletList}>
-            <li>Your iOS device model and iOS version</li>
-            <li>AlgernonIQ app version</li>
+            <li>iOS device model and version</li>
+            <li>Classics app version</li>
             <li>Detailed description of the issue</li>
             <li>Steps to reproduce the problem</li>
-            <li>Screenshots if applicable</li>
-            <li>Your current ELO score and puzzle type when the issue occurred</li>
+            <li>Screenshots, if applicable</li>
+            <li>Book title if the issue occurs while reading</li>
           </ul>
-          <p>This information helps us quickly identify and resolve any issues.</p>
+          <p>This helps us quickly identify and resolve issues.</p>
         </div>
       </div>
 
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Feature Requests</h2>
         <div className={styles.content}>
-          <p>We're constantly improving AlgernonIQ. When submitting feature requests, please include:</p>
+          <p>To suggest features, include:</p>
           <ul className={styles.bulletList}>
-            <li>Clear description of the proposed feature</li>
-            <li>How it would enhance your learning experience</li>
-            <li>Any specific pattern types or cognitive areas it would address</li>
+            <li>A clear description of the feature</li>
+            <li>How it would improve your reading experience</li>
+            <li>Any specific use cases</li>
           </ul>
-          <p>Email your suggestions to ckb@tutortechy.com with the subject "AlgernonIQ Feature Request".</p>
+          <p>Email suggestions to ckb@tutortechy.com with the subject "Classics Feature Request".</p>
         </div>
       </div>
 
       <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Data and Privacy Support</h2>
+        <h2 className={styles.sectionTitle}>Performance Tips</h2>
         <div className={styles.content}>
-          <p>For questions about your data or privacy:</p>
+          <p>For the best reading experience:</p>
           <ul className={styles.bulletList}>
-            <li>Data export requests: Email with subject "Data Export Request"</li>
-            <li>Account deletion: Use the in-app deletion feature or email us</li>
-            <li>Privacy concerns: Contact us with subject "Privacy Inquiry"</li>
-          </ul>
-          <p>We typically process data-related requests within 48 hours.</p>
-        </div>
-      </div>
-
-      <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Performance Issues</h2>
-        <div className={styles.content}>
-          <p>If you experience performance issues:</p>
-          <ul className={styles.bulletList}>
-            <li>Ensure your iOS is updated to the latest version</li>
-            <li>Check your available device storage</li>
-            <li>Try closing and reopening the app</li>
-            <li>If issues persist, contact support with your device details</li>
+            <li>Keep iOS updated to the latest version</li>
+            <li>Maintain adequate free storage space</li>
+            <li>Download books on a stable connection</li>
+            <li>Close other apps running in the background</li>
           </ul>
         </div>
       </div>

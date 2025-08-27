@@ -8,7 +8,7 @@ export default function TermsOfService() {
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Acceptance of Terms</h2>
         <div className={styles.content}>
-          <p>By downloading, installing, or using AlgernonIQ, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not use our application.</p>
+          <p>By downloading, installing, or using Classics, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not use our application.</p>
           <p>Last Updated: March 2024</p>
         </div>
       </div>
@@ -16,27 +16,38 @@ export default function TermsOfService() {
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Service Description</h2>
         <div className={styles.content}>
-          <p>AlgernonIQ is an iOS application designed to enhance cognitive abilities through:</p>
+          <p>Classics is an iOS application that provides:</p>
           <ul className={styles.bulletList}>
-            <li>Pattern recognition puzzles with adaptive difficulty</li>
-            <li>Performance tracking using ELO scoring system</li>
-            <li>Statistical analysis of cognitive strengths and areas for improvement</li>
-            <li>Personalized learning paths based on user performance</li>
+            <li>Access to a curated collection of public domain books</li>
+            <li>Offline reading capabilities</li>
+            <li>Personal annotation features (highlights and notes)</li>
+            <li>Customizable reading experience</li>
           </ul>
         </div>
       </div>
 
       <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>User Responsibilities</h2>
+        <h2 className={styles.sectionTitle}>Public Domain Content</h2>
         <div className={styles.content}>
-          <p>As an AlgernonIQ user, you agree to:</p>
+          <p>Regarding the books available in Classics:</p>
           <ul className={styles.bulletList}>
-            <li>Provide accurate information for performance tracking</li>
-            <li>Not attempt to manipulate or artificially inflate scores</li>
-            <li>Not reverse engineer the puzzle generation algorithms</li>
-            <li>Not share or distribute puzzle solutions</li>
-            <li>Maintain the security of your account and progress data</li>
-            <li>Use the app for its intended purpose of cognitive improvement</li>
+            <li>All books are carefully selected from the public domain</li>
+            <li>Texts are provided "as is" without any warranty</li>
+            <li>We make best efforts to ensure textual accuracy</li>
+            <li>Original author attributions are maintained</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>User Rights</h2>
+        <div className={styles.content}>
+          <p>As a Classics user, you may:</p>
+          <ul className={styles.bulletList}>
+            <li>Download and read any available books</li>
+            <li>Create personal annotations and highlights</li>
+            <li>Customize your reading experience</li>
+            <li>Use the app for personal, non-commercial purposes</li>
           </ul>
         </div>
       </div>
@@ -46,38 +57,24 @@ export default function TermsOfService() {
         <div className={styles.content}>
           <p>The following components are protected by intellectual property rights:</p>
           <ul className={styles.bulletList}>
-            <li>Pattern recognition algorithms and puzzle generation systems</li>
-            <li>Performance tracking and ELO calculation methodologies</li>
-            <li>Visual design elements and user interface</li>
-            <li>Statistical analysis and radar chart implementations</li>
-            <li>All app content, including puzzle designs and explanations</li>
+            <li>The Classics app interface and design</li>
+            <li>Our custom typography and themes</li>
+            <li>The app's codebase and functionality</li>
+            <li>App icons and visual elements</li>
           </ul>
-          <p>Users retain rights to their personal performance data and statistics.</p>
+          <p>Your personal annotations and highlights belong to you.</p>
         </div>
       </div>
 
       <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Data Usage and Storage</h2>
+        <h2 className={styles.sectionTitle}>Data Storage</h2>
         <div className={styles.content}>
-          <p>By using AlgernonIQ, you agree that we may:</p>
+          <p>By using Classics, you understand that:</p>
           <ul className={styles.bulletList}>
-            <li>Store your performance data locally and in our Supabase database</li>
-            <li>Use your anonymized performance patterns to improve puzzle generation</li>
-            <li>Track your progress across different cognitive categories</li>
-            <li>Maintain streak and achievement records</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Performance Metrics</h2>
-        <div className={styles.content}>
-          <p>You acknowledge that:</p>
-          <ul className={styles.bulletList}>
-            <li>ELO scores are calculated based on objective performance metrics</li>
-            <li>Difficulty adjustments are automated based on your performance</li>
-            <li>Statistics and radar charts reflect actual performance data</li>
-            <li>Streaks and achievements are awarded based on verified completion</li>
+            <li>All data is stored locally on your device</li>
+            <li>No cloud backup is currently available</li>
+            <li>Deleting the app will remove all data</li>
+            <li>You are responsible for device backups</li>
           </ul>
         </div>
       </div>
@@ -87,40 +84,24 @@ export default function TermsOfService() {
         <div className={styles.content}>
           <p>The following activities are prohibited:</p>
           <ul className={styles.bulletList}>
-            <li>Automated solving of puzzles</li>
-            <li>Manipulation of performance data</li>
-            <li>Unauthorized access to puzzle generation systems</li>
-            <li>Distribution of copyrighted puzzle content</li>
-            <li>Interference with other users' experience</li>
+            <li>Redistributing books from the app</li>
+            <li>Modifying or reverse engineering the app</li>
+            <li>Using the app for commercial purposes</li>
+            <li>Attempting to circumvent any app limitations</li>
           </ul>
-        </div>
-      </div>
-
-      <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Termination</h2>
-        <div className={styles.content}>
-          <p>We reserve the right to terminate or suspend access to AlgernonIQ if you:</p>
-          <ul className={styles.bulletList}>
-            <li>Violate these Terms of Service</li>
-            <li>Manipulate performance metrics</li>
-            <li>Engage in prohibited activities</li>
-            <li>Misuse the application's features</li>
-          </ul>
-          <p>Users may delete their account and data at any time through the app settings.</p>
         </div>
       </div>
 
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Disclaimers</h2>
         <div className={styles.content}>
-          <p>AlgernonIQ provides:</p>
+          <p>Please note that:</p>
           <ul className={styles.bulletList}>
-            <li>Pattern recognition training, not medical or diagnostic services</li>
-            <li>Performance tracking for personal improvement purposes</li>
-            <li>Educational content without therapeutic claims</li>
-            <li>Automated difficulty adjustment based on performance algorithms</li>
+            <li>Public domain texts are provided without warranty</li>
+            <li>Reading progress depends on local device storage</li>
+            <li>App performance may vary by device</li>
+            <li>Features may change with updates</li>
           </ul>
-          <p>Results and improvement rates may vary by individual.</p>
         </div>
       </div>
 
@@ -130,9 +111,9 @@ export default function TermsOfService() {
           <p>We may update these terms to reflect:</p>
           <ul className={styles.bulletList}>
             <li>New app features and functionality</li>
-            <li>Changes in puzzle generation systems</li>
-            <li>Updates to scoring mechanisms</li>
-            <li>Modifications to data storage practices</li>
+            <li>Changes in our content library</li>
+            <li>Updates to storage methods</li>
+            <li>Legal or regulatory requirements</li>
           </ul>
           <p>Users will be notified of significant changes through the app.</p>
         </div>
